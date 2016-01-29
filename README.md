@@ -40,6 +40,16 @@ Summary:
 
 `$ pip install -r requirements.txt`
 
+Remember for the twitter listener to create a `keys.py` file in `src/python/listener` like this:
+
+```
+ACCESS_TOKEN = "YOUR ACCESS_TOKEN"
+ACCESS_TOKEN_SECRET = "YOUR ACCESS_TOKEN_SECRET"
+CONSUMER_KEY = "YOUR CONSUMER_KEY"
+CONSUMER_SECRET = "YOUR CONSUMER_SECRET"
+```
+To get your keys take a look [here](https://apps.twitter.com/)
+
 ------------
 
 ### Run
