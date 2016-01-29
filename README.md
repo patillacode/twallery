@@ -25,7 +25,7 @@ tweet -> listener -> redis -> website
 
 Summary:
 
-"""
+```
     $ wget http://download.redis.io/redis-stable.tar.gz # download redis
     $ tar xvzf redis-stable.tar.gz                      # uncompress it
     $ cd redis-stable                                   # move into the uncompressed folder
@@ -33,7 +33,7 @@ Summary:
     $ make test                                         # run tests
     $ sudo cp src/redis-server /usr/local/bin/          # copy server command into your environment
     $ sudo cp src/redis-cli /usr/local/bin/             # copy client command into your environment
-"""
+```
 
 #### Python
 
