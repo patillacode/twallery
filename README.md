@@ -9,6 +9,7 @@ tweet -> listener -> redis -> website
 ------------
 
 ### Install
+`$ git clone https://github.com/patillacode/twallery.git`
 `$ mkvirtualenv twallery`
 
 #### Node environment and packages
