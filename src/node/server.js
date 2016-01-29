@@ -1,25 +1,40 @@
-var app = require('http').createServer(handler)
-var io = require('socket.io')(app);
-var fs = require('fs');
 
-app.listen(8080);
+/*
+    Node.js server script
+    Required node packages: express, redis, socket.io
+*/
+var PORT = 3000;
+var HOST = 'localhost';
 
-function handler (req, res) {
-    fs.readFile(__dirname + '/client.html',
-        function (err, data) {
-            if (err) {
-                res.writeHead(500);
-                return res.end('Error loading client.html');
-            }
+var express = require('express'),
+    http = require('http'),
+    server = http.createServer(app);
 
-            res.writeHead(200);
-            res.end(data);
+var app = express();
+
+var redis = require('redis');
+var client = redis.createClient();
+
+var io = require('socket.io');
+
+if (!module.parent) {
+    server.listen(PORT, HOST);
+    var socket  = io.listen(server);
+
+    socket.on('connection', function(client) {
+        var subscribe = redis.createClient()
+        subscribe.subscribe('realtime');
+
+        subscribe.on("message", function(channel, message) {
+            client.send(message);
         });
+
+        client.on('message', function(msg) {
+        });
+
+        client.on('disconnect', function() {
+            subscribe.quit();
+        });
+    });
 }
 
-io.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
-});

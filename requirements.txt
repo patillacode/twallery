@@ -1,0 +1,4 @@
+bumpversion==0.5.3
+Flask==0.10.1
+redis==2.10.5
+tweepy==3.5.0

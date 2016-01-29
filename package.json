@@ -1,0 +1,20 @@
+{
+  "name": "twallery",
+  "version": "0.0.1",
+  "description": "",
+  "dependencies": {
+    "redis": "",
+    "socket.io": "",
+    "express": ""
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 1"
+  },
+  "author": "patillacode@gmail.com",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patillacode/twallery.git"
+  }
+}
