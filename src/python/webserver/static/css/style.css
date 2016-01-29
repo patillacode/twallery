@@ -1,0 +1,44 @@
+#content {
+    margin-top: 50px;
+}
+
+.tweet_container {
+    border: 1px solid #666;
+}
+
+.tweet_media_container {
+
+}
+
+.tweet_media {
+
+}
+
+.tweet_footer {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
+}
+
+.tweet_avatar {
+    width: 30%;
+    float: left;
+}
+
+.tweet_text_container {
+    width: 70%;
+    float: left;
+}
+
+.tweet_screen_name {
+    float: left;
+    font-weight: bold;
+}
+
+.tweet_user {
+    float: left;
+}
+
+.tweet_text {
+    clear: both;
+}
