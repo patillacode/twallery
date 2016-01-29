@@ -73,7 +73,7 @@ Summary:
 ##### Twitter Listener
 ```
     $ cd src/python/listener
-    $ python listener.py --hastags ht1 ht2 hst3 ... htN
+    $ python listener.py --hashtags ht1 ht2 hst3 ... htN
 
 
 
