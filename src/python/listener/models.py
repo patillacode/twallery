@@ -37,7 +37,6 @@ class Listener(StreamListener):
         if 'entities' in data and 'hashtags' in data['entities']:
             hashtags = data['entities']['hashtags']
         if 'entities' in data and 'media' in data['entities']:
-            print data['entities']['media']
             for m in data['entities']['media']:
                 media_url.append(m['media_url'])
 
@@ -51,9 +50,10 @@ class Listener(StreamListener):
                     {'text': data['text'].encode('utf-8')})
                 user_data = {'id': data['user']['id_str'],
                              'name': data['user']['name'].encode('utf-8'),
-                             'screen_name': data['user']['screen_name']
+                             'screen_name': data['user']['screen_name'],
+                             'avatar_url': data['user']['profile_image_url']
                              }
-                data_to_publish.update({'user': user_data})
+                data_to_publish.update({'user_data': user_data})
                 data_to_publish.update({'media_url': media_url})
                 # publish data
                 self.tracker.publish_data(data_to_publish)

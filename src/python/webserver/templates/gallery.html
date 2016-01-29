@@ -7,40 +7,10 @@
         <meta name="keywords" content="Twallery">
         <title>Twallery</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
         <script type="text/javascript" src="http://localhost:3000/socket.io/socket.io.js"></script>
-        <script type="text/javascript">
-
-            var socket = io.connect('http://localhost:3000/');
-
-                socket.on('connect', function(data){
-                setStatus('connected');
-                socket.emit('subscribe', {channel:'realtime'});
-            });
-
-            socket.on('reconnecting', function(data){
-               setStatus('reconnecting');
-            });
-
-            socket.on('message', function (data) {
-                data = $.parseJSON(data);
-                console.log('received a message: ', data);
-                addMessage(data);
-            });
-
-            function addMessage(data) {
-                $('#content').append("<p>"+data.text+"</p>");
-                $('#content').append("<p>"+data.user["name"]+"</p>");
-                $('#content').append("<p>"+data.user["screen_name"]+"</p>");
-                $('#content').append("<p>"+data.hashtag+"</p>");
-                $('#content').append("<p>"+data.event+"</p>");
-                $('#content').append("<p>"+data.media_url+"</p>");
-            }
-
-            function setStatus(msg) {
-                console.log('Connection Status : ' + msg);
-            }
-        </script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/twallery.js') }}"></script>
     </head>
 
     <body>
@@ -57,14 +27,7 @@
                 </div>
             </div>
         </nav>
-        <p class="clear-fix"></p>
         <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-
-        <div id="content" class="container-fluid">
-        </div>
+        <div id="content"></div>
     </body>
 </html>
