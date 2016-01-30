@@ -1,9 +1,44 @@
+@font-face {
+    font-family: "Swiftel";
+    src: url("../fonts/Swiftel.ttf"),
+         url('../fonts/Swiftel.woff2') format('woff2'),
+         url('../fonts/Swiftel.woff') format('woff'); /* Pretty Modern Browsers */
+}
+
+.twallery-font {
+    font-family: "Swiftel";
+}
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 50px;
+    background-color: #999;
+    text-shadow: 2px 0 0 #fff,
+             -2px 0 0 #fff,
+             0 2px 0 #fff,
+             0 -2px 0 #fff,
+             1px 1px #fff,
+             -1px -1px 0 #fff,
+             1px -1px 0 #fff,
+             -1px 1px 0 #fff;
+}
+
+.header > p > a {
+    font-size: 27pt;
+    color: #ff6900;
+    text-decoration: none;
+}
+
 #content {
     margin-top: 50px;
 }
 
 .tweet_container {
-    border: 1px solid #666;
+    padding: 1%;
 }
 
 .tweet_media_container {
@@ -11,32 +46,42 @@
 }
 
 .tweet_media {
-
+    margin: auto;
+    height: 300px;
 }
 
 .tweet_footer {
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px; /* future proofing */
+    padding: 1%;
+    height: 100px;
+    margin-top: 1%;
+}
+
+.tweet_avatar_container {
+    width: 20%;
+    float: left;
 }
 
 .tweet_avatar {
-    width: 30%;
-    float: left;
+
 }
 
 .tweet_text_container {
-    width: 70%;
-    float: left;
+    width: 80%;
+    float: right;
 }
 
 .tweet_screen_name {
     float: left;
     font-weight: bold;
+    margin-right: 3%;
+    margin-bottom: 0;
 }
 
 .tweet_user {
-    float: left;
+    float: right;
+    font-weight: bold;
+    margin-right: 1%;
+    margin-bottom: 0;
 }
 
 .tweet_text {
