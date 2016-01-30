@@ -12,6 +12,8 @@ tweet -> listener -> redis -> website
 `$ git clone https://github.com/patillacode/twallery.git`
 `$ mkvirtualenv twallery`
 
+If you don't have mkvirtualenv installed I recommend to take a look [here](http://hosseinkaz.blogspot.co.uk/2012/06/how-to-install-virtualenv.html)
+
 #### Node environment and packages
 ```
     $ pip install nodeenv
@@ -43,10 +45,10 @@ Summary:
 Remember for the twitter listener to create a `keys.py` file in `src/python/listener` like this:
 
 ```
-ACCESS_TOKEN = "YOUR ACCESS_TOKEN"
-ACCESS_TOKEN_SECRET = "YOUR ACCESS_TOKEN_SECRET"
-CONSUMER_KEY = "YOUR CONSUMER_KEY"
-CONSUMER_SECRET = "YOUR CONSUMER_SECRET"
+ACCESS_TOKEN = "YOUR_ACCESS_TOKEN"
+ACCESS_TOKEN_SECRET = "YOUR_ACCESS_TOKEN_SECRET"
+CONSUMER_KEY = "YOUR_CONSUMER_KEY"
+CONSUMER_SECRET = "YOUR_CONSUMER_SECRET"
 ```
 To get your keys take a look [here](https://apps.twitter.com/)
 
