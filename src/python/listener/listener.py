@@ -6,13 +6,7 @@ import traceback
 
 from models import Tracker
 
-# set up logging to console
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-console.setFormatter(logging.Formatter('%(asctime)s %(message)s'))
-
-# add the handler to the root logger
-logging.getLogger('').addHandler(console)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
@@ -50,7 +44,7 @@ if __name__ == '__main__':
         stream.filter(track=tracker.hashtags)
 
     except (KeyboardInterrupt, SystemExit):
-        logging.debug("Farewell my friend!")
+        logger.debug("Farewell my friend!")
 
     except:
-        logging.error(traceback.format_exc())
+        logger.error(traceback.format_exc())
