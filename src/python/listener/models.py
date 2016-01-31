@@ -34,14 +34,17 @@ class Listener(StreamListener):
         media_url = []
         data = json.loads(data)
 
-        if 'entities' in data and 'hashtags' in data['entities']:
-            hashtags = data['entities']['hashtags']
         if 'entities' in data and 'media' in data['entities']:
             for m in data['entities']['media']:
                 media_url.append(m['media_url'])
+        else:
+            return True
+
+        if 'entities' in data and 'hashtags' in data['entities']:
+            hashtags = data['entities']['hashtags']
 
         for h in hashtags:
-            if h['text'] in self.tracker.hashtags:
+            if h['text'].lower() in self.tracker.hashtags:
                 # create data to be published in channel
                 data_to_publish = {}
                 data_to_publish.update({'event': 'tweet'})
@@ -57,6 +60,7 @@ class Listener(StreamListener):
                 data_to_publish.update({'media_url': media_url})
                 # publish data
                 self.tracker.publish_data(data_to_publish)
+                break
 
         return True
 
