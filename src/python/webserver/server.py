@@ -9,13 +9,7 @@ from flask import Flask
 from flask import render_template
 # from flask import request
 
-# set up logging to console
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-console.setFormatter(logging.Formatter('%(asctime)s %(message)s'))
-
-# add the handler to the root logger
-logging.getLogger('').addHandler(console)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
@@ -61,6 +55,7 @@ class ServerParser(argparse.ArgumentParser):
 
 
 if __name__ == '__main__':
+
     try:
         parser = ServerParser()
         parser.add_argument("--host",
