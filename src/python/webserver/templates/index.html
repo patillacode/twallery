@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="description" content="Twallery">
+    <meta name="keywords" content="Twallery">
+    <title>Twallery</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data" action="{{ url_for('run_listener') }}">
+        <!-- <input id="file-upload" type="file" name="picture"> -->
+        <input id="hashtag-upload" name="hashtags" type="text" class="filestyle" data-buttonName="btn-black" data-buttonText="Enter the hastag to track!">
+        <!-- <hr> -->
+        <br/>
+        <button id="pimp-button" class="btn btn-lg btn-orange btn-block" type="submit">
+            Start
+        </button>
+    </form>
+</body>
+</html>
