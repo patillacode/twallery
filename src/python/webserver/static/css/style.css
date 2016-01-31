@@ -16,7 +16,7 @@
     z-index: 9999;
     width: 100%;
     height: 50px;
-    background-color: #999;
+    background-color: #000;
     text-shadow: 2px 0 0 #fff,
              -2px 0 0 #fff,
              0 2px 0 #fff,
@@ -34,7 +34,7 @@
 }
 
 #content {
-    margin-top: 50px;
+    padding-top: 54px;
 }
 
 .tweet_container {
