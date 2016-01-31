@@ -1,11 +1,13 @@
 import argparse
 import json
 import logging
+# import subprocess
 import sys
 import traceback
 
 from flask import Flask
 from flask import render_template
+# from flask import request
 
 # set up logging to console
 console = logging.StreamHandler()
@@ -19,14 +21,33 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 
 
-@app.route("/")
-def main():
+@app.route("/gallery")
+def gallery():
     try:
         return render_template('gallery.html'), 200
     except:
         logger.error(traceback.format_exc())
         return json.dumps(
             {"error": "Sorry, something bad happened with your request."}), 500
+
+
+# @app.route("/", methods=['GET', 'POST'])
+# def run_listener():
+#     if request.method == 'POST':
+#         listener_command = ["python",
+#                             "listener.py",
+#                             "--hashtags"]
+#         for h in request.form["hashtags"]:
+#             listener_command.append(h)
+
+#         proc = subprocess.Popen(listener_command,
+#                                 shell=False,
+#                                 stdin=None,
+#                                 stdout=None,
+#                                 stderr=None,
+#                                 close_fds=True)
+#     else:
+#         return render_template('index.html')
 
 
 class ServerParser(argparse.ArgumentParser):
