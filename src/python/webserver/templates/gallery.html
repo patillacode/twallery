@@ -10,17 +10,18 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
         <script type="text/javascript" src="http://localhost:3000/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/twallery.js') }}"></script>
     </head>
 
     <body>
         <div id="header" class="header clear-fix">
             <p class="text-center">
-                <a href="http://{{ request.host }}" class="twallery-font">Twallery</a>
+                <a href="{{ url_for('gallery') }}" class="twallery-font">Twallery</a>
+                <button id="pause-btn" class="btn btn-lg btn-success btn-block" value="pause">Pause</button>
             </p>
         </div><!-- /header -->
         <hr>
         <div id="content">
         </div>
     </body>
+    <script type="text/javascript" src="{{ url_for('static', filenamaine='js/twallery.js') }}"></script>
 </html>
