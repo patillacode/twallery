@@ -22,7 +22,7 @@ if (!module.parent) {
     var socket  = io.listen(server);
 
     socket.on('connection', function(client) {
-        var subscribe = redis.createClient()
+        var subscribe = redis.createClient();
         subscribe.subscribe('realtime');
 
         subscribe.on("message", function(channel, message) {
