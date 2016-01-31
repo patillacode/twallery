@@ -1,5 +1,6 @@
+var keep_going = true;
 var socket = io.connect('http://localhost:3000/');
-socket.on('connect', function(data){
+socket.on('connect', function (data){
     setStatus('connected');
     socket.emit('subscribe', {channel:'realtime'});
 });
@@ -10,8 +11,26 @@ socket.on('reconnecting', function(data){
 
 socket.on('message', function (data) {
     data = $.parseJSON(data);
-    console.log('received a message: ', data);
-    createNewTweet(data);
+    // console.log('received a message: ', data);
+    if(keep_going){
+        createNewTweet(data);
+    }
+});
+
+$('#pause-btn').on('click', function () {
+    keep_going = !keep_going;
+    if ($(this).val() == 'pause'){
+        $(this).val('resume');
+        $(this).text('Resume');
+        $(this).addClass('btn-warning');
+        $(this).removeClass('btn-success');
+    }
+    else{
+        $(this).val('pause');
+        $(this).text('Pause');
+        $(this).addClass('btn-success');
+        $(this).removeClass('btn-warning');
+    }
 });
 
 function createNewTweet(data){
@@ -39,6 +58,6 @@ function createNewTweet(data){
     $('#content').prepend(tweet_container);
 }
 
-function setStatus(msg) {
-    console.log('Connection Status : ' + msg);
+function setStatus(status) {
+    console.log('Connection Status : ' + status);
 }
